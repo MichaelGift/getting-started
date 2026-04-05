@@ -24,3 +24,8 @@
  - Student Claims for lost item.
  - Staff gets the items and update the status as Found.
  - server send out notification text Resolved.
+
+
+## Models
+- MissingItem
+- Users
