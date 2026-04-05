@@ -12,6 +12,15 @@
 
 
 ## User story 1: Report a Missing Item
- - User Fills A Form With Details Of The Missing Item
+ - Student Fills A Form With Details Of The Missing Item
  - Server Receives The Form Data And Stores It In A Database
  - Server Sends A Confirmation Message To The User
+
+ ## User story 2: Update the Form
+ - Staff looks for the report and update the status as Available.
+ - Server send out notification text to the users.
+ 
+ ## User story 3: Claim for Missing Item
+ - Student Claims for lost item.
+ - Staff gets the items and update the status as Found.
+ - server send out notification text Resolved.
