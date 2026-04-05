@@ -6,6 +6,11 @@
 - As a staff will reported found or resolved the missing item or gets deleted.
 
 
+## User Personas:
+1. Student: Either a student who has lost an item or found an item and wants to report it.
+2. Staff: Responsible for managing the lost and found items, posting them on the website.
+
+
 ## User story 1: Report a Missing Item
  - User Fills A Form With Details Of The Missing Item
  - Server Receives The Form Data And Stores It In A Database
