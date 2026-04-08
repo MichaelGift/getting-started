@@ -13,14 +13,25 @@ services:
       context: .
     environment:
       NODE_ENV: production
+    networks:
+      - default
     ports:
       - 3000:3000
-
 
   # client:
 
   db:
-    
+    image: postgres:18-alpine
+    networks:
+      - default
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+networks:
+  default:
+    attachable: true
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
