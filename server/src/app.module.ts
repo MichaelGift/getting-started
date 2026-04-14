@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import dbConfig from './config/db.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DatabaseModule } from './database/db.module';
 
 const config = {
   isGlobal: true,
@@ -25,9 +26,10 @@ const dbConfigFactory = {
 @Module({
   imports: [
     ConfigModule.forRoot(config),
-    TypeOrmModule.forRootAsync(dbConfigFactory)
+    TypeOrmModule.forRootAsync(dbConfigFactory),
+    DatabaseModule
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
