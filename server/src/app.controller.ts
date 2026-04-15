@@ -1,6 +1,6 @@
-import { Controller, Get ,Post} from '@nestjs/common';
+import { Controller, Get, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
-import { MissingItem } from './database/entities/'
+import { MissingItem } from './database/entities/';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -12,6 +12,11 @@ export class AppController {
 
   @Post()
   getUser(missingItem: MissingItem): MissingItem {
-    return new MissingItem()
+    return new MissingItem();
+  }
+
+  @Put()
+  updateUser(){
+
   }
 }

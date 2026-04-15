@@ -2,7 +2,7 @@ import { registerAs } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export default registerAs('db', (): TypeOrmModuleOptions => {
-  const config = {
+  return {
     type: 'postgres',
     host: process.env.POSTGRES_HOST,
     port: parseInt('5432', 10),
@@ -13,5 +13,4 @@ export default registerAs('db', (): TypeOrmModuleOptions => {
     synchronize: true,
     entities: [__dirname + '/../**/*.entity.js'],
   } as TypeOrmModuleOptions;
-  return config;
 });

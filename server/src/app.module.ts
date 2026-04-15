@@ -8,11 +8,9 @@ import { DatabaseModule } from './database/db.module';
 
 const config = {
   isGlobal: true,
-  load: [
-    dbConfig
-  ],
+  load: [dbConfig],
   envFilePath: '.env',
-}
+};
 
 const dbConfigFactory = {
   imports: [ConfigModule],
@@ -21,13 +19,13 @@ const dbConfigFactory = {
     return configService.get('db')!;
   },
   inject: [ConfigService],
-}
+};
 
 @Module({
   imports: [
     ConfigModule.forRoot(config),
     TypeOrmModule.forRootAsync(dbConfigFactory),
-    DatabaseModule
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
