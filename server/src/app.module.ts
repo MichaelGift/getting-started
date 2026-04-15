@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import dbConfig from './config/db.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseModule } from './database/db.module';
+import { LostnFoundModule } from './modules/lostnfound/lostnfound.module';
 
 const config = {
   isGlobal: true,
@@ -26,6 +27,7 @@ const dbConfigFactory = {
     ConfigModule.forRoot(config),
     TypeOrmModule.forRootAsync(dbConfigFactory),
     DatabaseModule,
+    LostnFoundModule,
   ],
   controllers: [AppController],
   providers: [AppService],
