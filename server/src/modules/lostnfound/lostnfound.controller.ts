@@ -9,7 +9,9 @@ import {
 } from '@nestjs/common';
 import { LostnFoundService } from './lostnfound.service';
 import { MissingItem, MissingItemDTO } from '../../database/entities';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('MissingItem')
 @Controller('lostnfound')
 export class LostnFoundController {
   constructor(private itemService: LostnFoundService) {}

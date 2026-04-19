@@ -22,18 +22,15 @@ export class LostnFoundService {
     }
   }
 
-  findAll(): Promise<MissingItem[]> {
+  async findAll(): Promise<MissingItem[]> {
     return this.itemRepo.find();
   }
 
   async findOne(id: string): Promise<MissingItem | undefined> {
-    try {
       const item = await this.itemRepo.findOne({ where: { id: id } });
       if (!item) throw new NotFoundException(`Item with id ${id} not found`);
       return item;
-    } catch (error) {
-      console.error(error);
-    }
+  
   }
 
   async update(

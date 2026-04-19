@@ -1,7 +1,10 @@
 import { Controller, Get, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MissingItem } from './database/entities/';
-@Controller()
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Testing Part')
+@Controller('Testing Part')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
@@ -16,7 +19,5 @@ export class AppController {
   }
 
   @Put()
-  updateUser(){
-
-  }
+  updateUser() {}
 }

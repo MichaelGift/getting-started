@@ -67,7 +67,7 @@ export class MissingItemDTO {
     default: State.LOST,
   })
   @IsEnum(State)
-  state: State;
+  status: State;
 }
 
 export class UpdateMissingItemDTO extends PartialType(MissingItemDTO) {}

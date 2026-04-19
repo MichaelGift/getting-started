@@ -5,11 +5,11 @@ export default registerAs('db', (): TypeOrmModuleOptions => {
   return {
     type: 'postgres',
     host: process.env.POSTGRES_HOST,
-    port: parseInt('5432', 10),
+    port: parseInt(process.env.POSTGRES_PORT || '5432', 10),
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
-    autoloadEntities: true,
+    autoLoadEntities: true,
     synchronize: true,
     entities: [__dirname + '/../**/*.entity.js'],
   } as TypeOrmModuleOptions;
