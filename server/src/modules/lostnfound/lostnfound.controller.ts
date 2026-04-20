@@ -3,9 +3,11 @@ import {
   Controller,
   Delete,
   Get,
+  Logger,
   Param,
   Post,
   Put,
+  Req,
 } from '@nestjs/common';
 import { LostnFoundService } from './lostnfound.service';
 import { MissingItem, MissingItemDTO } from '../../database/entities';
@@ -14,12 +16,16 @@ import { ApiTags } from '@nestjs/swagger';
 @ApiTags('MissingItem')
 @Controller('lostnfound')
 export class LostnFoundController {
+  private logger = new Logger(LostnFoundController.name);
   constructor(private itemService: LostnFoundService) {}
 
   @Post()
   async createItem(
     @Body() data: MissingItemDTO,
+    @Req() req: Request,
   ): Promise<MissingItem | undefined> {
+    this.logger.log(data);
+    this.logger.log(req.body);
     return this.itemService.createItem(data);
   }
 
