@@ -5,6 +5,11 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({
+    origin: true,
+    credentials: true,
+  });
+  
   const config = new DocumentBuilder()
     .setTitle('Lost and Found API')
     .setDescription('API documentation for the Lost and Found system')
@@ -18,7 +23,7 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT ?? 3000);
 
-//   console.log(`Application is running on: http://localhost:3000`);
-//   console.log(`Swagger docs available at: http://localhost:3000/api`);
+  //   console.log(`Application is running on: http://localhost:3000`);
+  //   console.log(`Swagger docs available at: http://localhost:3000/api`);
 }
 bootstrap();
