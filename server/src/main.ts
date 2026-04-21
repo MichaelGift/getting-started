@@ -21,7 +21,7 @@ async function bootstrap() {
 
   SwaggerModule.setup('api', app, documentFactory);
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3001);
 
   //   console.log(`Application is running on: http://localhost:3000`);
   //   console.log(`Swagger docs available at: http://localhost:3000/api`);
