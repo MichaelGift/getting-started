@@ -4,11 +4,11 @@ import LostItemSubmissionForm from "@/app/lost-n-found/components/lost-item-subm
 
 export default async function LostNFoundPage() {
     const itemData = await fetchAllItems()
-
-
     return <div>
         <LostItemSubmissionForm/>
+        
         <h1>Lost n found Page</h1>
         {itemData?.map((item) => <LostItemCard data={item} key={item.id}/>)}
+        
     </div>
 }

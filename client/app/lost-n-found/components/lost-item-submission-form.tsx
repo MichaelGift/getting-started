@@ -32,7 +32,7 @@ export default function LostItemSubmissionForm() {
         }
     }
 
-
+    
     return (
         <div className="w-full max-w-xs bg-black">
             <form

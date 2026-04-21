@@ -5,7 +5,7 @@ import { Item } from "../data/lost-items";
 
 export async function fetchAllItems(): Promise<Item[] | undefined> {
     try {
-        const response = await fetch('http://localhost:3000/lostnfound', {
+        const response = await fetch('http://localhost:3001/lostnfound', {
             method: 'GET'
         });
 
@@ -17,9 +17,41 @@ export async function fetchAllItems(): Promise<Item[] | undefined> {
     }
 }
 
+export async function fetchItemsById(id: string ): Promise<Item | undefined> {
+  try {
+    const response = await fetch(`http://localhost:3001/lostnfound/${id}`, {
+      method: "GET",
+    });
+
+    if (!response.ok) return;
+
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function editItem(id: string,  data: { name : string, description: string, color:string}): Promise<Item | undefined> {
+  try {
+    const response = await fetch(`http://localhost:3001/lostnfound/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) return ;
+
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function deleteItem(id: string): Promise<{ message: string } | undefined> {
     try {
-        const response = await fetch(`http://localhost:3000/lostnfound/${id}`, {
+        const response = await fetch(`http://localhost:3001/lostnfound/${id}`, {
             method: 'DELETE'
         });
 
@@ -35,7 +67,7 @@ export async function createMissingItem(data: { name: string; description: strin
     console.log(data);
 
     try {
-        const response = await fetch('http://localhost:3000/lostnfound', {
+        const response = await fetch('http://localhost:3001/lostnfound', {
             method: 'POST',
             body: JSON.stringify(data),
         })
