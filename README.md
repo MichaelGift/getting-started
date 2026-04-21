@@ -29,3 +29,8 @@
 ## Models
 - MissingItem
 - Users
+
+
+- Client runs on port 3000
+- Server runs on port 3001
+
