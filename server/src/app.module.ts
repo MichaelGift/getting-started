@@ -6,6 +6,8 @@ import dbConfig from './config/db.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseModule } from './database/db.module';
 import { LostnFoundModule } from './modules/lostnfound/lostnfound.module';
+import { StudentDataModule } from './modules/studentdata/studentdata.module';
+import { CalcProjModule } from './modules/CalcProj/calproj.module';
 
 const config = {
   isGlobal: true,
@@ -28,6 +30,8 @@ const dbConfigFactory = {
     TypeOrmModule.forRootAsync(dbConfigFactory),
     DatabaseModule,
     LostnFoundModule,
+    StudentDataModule,
+    CalcProjModule
   ],
   controllers: [AppController],
   providers: [AppService],

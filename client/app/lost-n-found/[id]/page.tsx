@@ -23,11 +23,3 @@ export default async function LostNFoundItem({
     </>
   );
 }
-
-//  return <div>
-//         <LostItemSubmissionForm/>
-
-//         <h1>Lost n found Page</h1>
-//         {itemData?.map((item) => <LostItemCard data={item} key={item.id}/>)}
-
-//     </div>

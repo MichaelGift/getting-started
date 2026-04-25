@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MissingItem } from './entities';
+import { Calculation, MissingItem, StudentData } from './entities';
+
 
 @Module({
-  imports: [TypeOrmModule.forFeature([MissingItem])],
+  imports: [TypeOrmModule.forFeature([MissingItem, StudentData, Calculation])],
   exports: [TypeOrmModule],
 })
 export class DatabaseModule {}
