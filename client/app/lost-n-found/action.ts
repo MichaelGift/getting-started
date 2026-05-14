@@ -69,6 +69,9 @@ export async function createMissingItem(data: { name: string; description: strin
     try {
         const response = await fetch('http://localhost:3001/lostnfound', {
             method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify(data),
         })
         if(!response.ok) return {} as Item

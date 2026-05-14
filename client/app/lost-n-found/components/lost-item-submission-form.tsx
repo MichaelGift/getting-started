@@ -9,7 +9,7 @@ export default function LostItemSubmissionForm() {
 
     const submitForm = async () => {
         try {
-            const response = await fetch('http://localhost:3000/lostnfound', {
+            const response = await fetch('http://localhost:3001/lostnfound', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,6 +47,7 @@ export default function LostItemSubmissionForm() {
                         Name
                     </label>
                     <input
+                        name={"item"}
                         className="shadow apperance-none border rounded w-full py-2 px-3"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -61,6 +62,7 @@ export default function LostItemSubmissionForm() {
                         Color
                     </label>
                     <input
+                        name={"color"}
                         className="shadow apperance-none border rounded w-full py-2 px-3"
                         value={color}
                         onChange={(e) => setColor(e.target.value)}
@@ -75,6 +77,7 @@ export default function LostItemSubmissionForm() {
                         Description
                     </label>
                     <input
+                        name={"description"}
                         className="shadow apperance-none border rounded w-full py-2 px-3"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -84,7 +87,9 @@ export default function LostItemSubmissionForm() {
                     />
                 </div>
                 <div className="flex items-center justify-between">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded"
+                    <button
+                         id={'form-submit-button'}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded"
                             type="submit">Submit
                     </button>
                 </div>
